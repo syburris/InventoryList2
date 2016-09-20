@@ -143,12 +143,14 @@ public class Main {
         String tankType = scanner.nextLine();
         if (tankType.equalsIgnoreCase("ust")) {
             Tank tank = new Tank(tankName1, tankQuant, false, "UST");
+            return tank;
         }
         else if (tankType.equalsIgnoreCase("ast")) {
             Tank tank = new Tank(tankName1, tankQuant, false, "AST");
+            return tank;
         }
         else if (tankType.equalsIgnoreCase("sbt")) {
-            tank = new Tank(tankName1, tankQuant, false, "SBT");
+            Tank tank = new Tank(tankName1, tankQuant, false, "SBT");
         }
         else if (tankType.equalsIgnoreCase("concrete")) {
 
