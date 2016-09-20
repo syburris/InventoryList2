@@ -137,12 +137,23 @@ public class Main {
     public static Tank createItem (String name) {
         System.out.println("Enter the name of your tank.");
         String tankName1 = scanner.nextLine();
-        System.out.println("What type of tank is this?");
-        String tankType = scanner.nextLine();
-
         System.out.println("How many of these tanks do you have?");
         int tankQuant = scanner.nextInt();
-        Tank tank = new Tank(tankName1, tankQuant, false, tankType);
+        System.out.println("What type of tank is this?");
+        String tankType = scanner.nextLine();
+        if (tankType.equalsIgnoreCase("ust")) {
+            Tank tank = new Tank(tankName1, tankQuant, false, "UST");
+        }
+        else if (tankType.equalsIgnoreCase("ast")) {
+            Tank tank = new Tank(tankName1, tankQuant, false, "AST");
+        }
+        else if (tankType.equalsIgnoreCase("sbt")) {
+            tank = new Tank(tankName1, tankQuant, false, "SBT");
+        }
+        else if (tankType.equalsIgnoreCase("concrete")) {
+
+        }
+
         engineers.get(name).getTanks().add(tank);
         System.out.println();
         return tank;
