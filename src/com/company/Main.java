@@ -79,7 +79,7 @@ public class Main {
             switch (option) {
 
                 case "1":
-                    Tank tank = createItem(name);
+                    Tank tank = createItem();
                     tanks.add(tank);
                     System.out.println();
                     break;
@@ -135,32 +135,31 @@ public class Main {
         }
     }
 
-    public static Tank createItem(String name) {
+    public static Tank createItem() {
         System.out.println("Enter the name of your tank.");
         String tankName1 = scanner.nextLine();
         System.out.println("How many of these tanks do you have?");
-        int tankQuant = scanner.nextInt();
+        int tankQuant = Integer.valueOf(scanner.nextLine());
         System.out.println("What type of tank is this?");
-        String tankType1 = scanner.nextLine();
         String tankType = scanner.nextLine();
         if (tankType.equalsIgnoreCase("ust")) {
-            Tank tank = new Tank(tankName1, tankQuant, false, "UST");
+            Tank tank = new UST(tankName1, tankQuant, false);
             return tank;
         } else if (tankType.equalsIgnoreCase("ast")) {
-            Tank tank = new Tank(tankName1, tankQuant, false, "AST");
+            Tank tank = new AST(tankName1, tankQuant, false);
             return tank;
         } else if (tankType.equalsIgnoreCase("sbt")) {
-            Tank tank = new Tank(tankName1, tankQuant, false, "SBT");
+            Tank tank = new SBT(tankName1, tankQuant, false);
             return tank;
         } else if (tankType.equalsIgnoreCase("concrete")) {
-            Tank tank = new Tank(tankName1, tankQuant, false, "Concrete");
+            Tank tank = new Concrete(tankName1, tankQuant, false);
             return tank;
         } else if (tankType.equalsIgnoreCase("invisible")) {
-            Tank tank = new Tank(tankName1, tankQuant, false, "Invisible");
+            Tank tank = new Invisible(tankName1, tankQuant, false);
             return tank;
         } else {
             System.out.println("That is not a valid type of tank.");
-            return createItem(name);
+            return createItem();
         }
     }
 }
